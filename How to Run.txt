@@ -1,0 +1,33 @@
+Steps to Run
+
+Build the project
+From the project root (C:\University\Projects\BugTrackingSystem-main):
+
+mvn clean package
+
+
+Run the main class
+Since the jar may not be executable, run it with Maven exec plugin:
+
+mvn exec:java -Dexec.mainClass="system.Main"
+
+
+👉 If Maven complains about exec:java not found, add the plugin in pom.xml:
+
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>exec-maven-plugin</artifactId>
+      <version>3.1.0</version>
+    </plugin>
+  </plugins>
+</build>
+
+
+Then try again.
+
+Alternative run (without Maven exec)
+If you don’t want to edit pom.xml, after building:
+
+java -cp target\classes system.Main
